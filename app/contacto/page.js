@@ -2,11 +2,15 @@ import { ContactForm } from "@/components/ContactForm";
 import { Icon } from "@/components/Icons";
 import { PageHero } from "@/components/Shared";
 import { company } from "@/lib/content";
+import { absoluteUrl } from "@/lib/seo";
 
 export const metadata = {
   title: "Contacto",
   description:
-    "Contacta con MCR Asesores en Av. Alcalde Jesús Calderón Moreno, 43, Pilas. Solicita información o concierta una cita."
+    "Contacta con MCR Asesores en Avenida Alcalde Jesús Calderón Moreno, 43, Pilas. Teléfono, WhatsApp, ubicación y formulario de contacto.",
+  alternates: {
+    canonical: absoluteUrl("/contacto/")
+  }
 };
 
 export default function ContactPage() {

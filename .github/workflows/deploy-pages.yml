@@ -33,6 +33,8 @@ jobs:
       - name: Compilar web
         env:
           NEXT_PUBLIC_BASE_PATH: /mcr-asesores-preview
+          NEXT_PUBLIC_SITE_URL: https://thefrankerboy.github.io/mcr-asesores-preview
+          NEXT_PUBLIC_ALLOW_INDEXING: "false"
         run: npm run build
 
       - name: Preparar GitHub Pages

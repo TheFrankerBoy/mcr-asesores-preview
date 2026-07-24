@@ -1,8 +1,13 @@
 node_modules/
 .next/
 out/
+dist/
+*.tsbuildinfo
 *.log
+**/.env
+**/.env.local
 tmp/
+prototipo-fichaje/
 .agents/
 .git/
 INICIO - MCR ASESORES S.L_.pdf

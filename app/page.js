@@ -3,6 +3,16 @@ import Link from "next/link";
 import { ArrowLink, AppointmentBand, ServiceIcon } from "@/components/Shared";
 import { Icon } from "@/components/Icons";
 import { assetPath, audiences, company, services } from "@/lib/content";
+import { absoluteUrl } from "@/lib/seo";
+
+export const metadata = {
+  title: "Gestoría y asesoría en Pilas, Sevilla",
+  description:
+    "Asesoramiento fiscal, contable, laboral, jurídico y administrativo para autónomos, pymes y empresas en Pilas. Experiencia y atención directa desde 1994.",
+  alternates: {
+    canonical: absoluteUrl("/")
+  }
+};
 
 export default function HomePage() {
   return (

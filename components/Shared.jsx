@@ -1,6 +1,7 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Icon } from "./Icons";
-import { company } from "@/lib/content";
+import { assetPath, company } from "@/lib/content";
 
 export function ArrowLink({ href, children, light = false, className = "" }) {
   return (
@@ -26,6 +27,14 @@ export function PageHero({ eyebrow, title, text }) {
 export function AppointmentBand() {
   return (
     <section className="appointment-band">
+      <Image
+        src={assetPath("/images/asesoria-personal-mcr.webp")}
+        alt=""
+        fill
+        sizes="100vw"
+        className="appointment-photo"
+      />
+      <div className="appointment-overlay" />
       <div className="section-shell appointment-content">
         <div data-reveal>
           <p className="eyebrow light">Atención personalizada</p>

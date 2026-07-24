@@ -112,9 +112,9 @@ export function Header() {
             </div>
           ))}
           <div className="mobile-nav-actions">
-            <a href={assetPath("/empleados/")} className="employee-mobile-link">
+            <a href={assetPath("/iniciar-sesion/")} className="employee-mobile-link">
               <Icon name="clock" size={19} />
-              Empleados
+              Iniciar sesión
             </a>
             <a
               href={company.whatsappHref}
@@ -133,9 +133,9 @@ export function Header() {
         </nav>
 
         <div className="header-actions">
-          <a href={assetPath("/empleados/")} className="employee-link">
+          <a href={assetPath("/iniciar-sesion/")} className="employee-link">
             <Icon name="clock" size={18} />
-            Empleados
+            Iniciar sesión
           </a>
           <a
             href={company.instagram}
@@ -206,7 +206,7 @@ export function Footer() {
             <Link href="/mcr-asesores">Quiénes somos</Link>
             <Link href="/servicios">Servicios</Link>
             <Link href="/contacto">Contacto</Link>
-            <a href={assetPath("/empleados/")}>Acceso de empleados</a>
+            <a href={assetPath("/iniciar-sesion/")}>Iniciar sesión</a>
             <a href={company.maps} target="_blank" rel="noreferrer">
               Cómo llegar
             </a>

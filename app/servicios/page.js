@@ -1,11 +1,15 @@
 import { PageHero, ServiceIcon, AppointmentBand } from "@/components/Shared";
 import { Icon } from "@/components/Icons";
 import { services } from "@/lib/content";
+import { absoluteUrl } from "@/lib/seo";
 
 export const metadata = {
-  title: "Servicios",
+  title: "Servicios de asesoría y gestoría",
   description:
-    "Asesoría fiscal, laboral, contable, jurídica, gestoría administrativa, agricultura, ganadería y extranjería."
+    "Asesoría fiscal, laboral, contable y jurídica, gestoría administrativa, agricultura, ganadería y extranjería en Pilas, Sevilla.",
+  alternates: {
+    canonical: absoluteUrl("/servicios/")
+  }
 };
 
 export default function ServicesPage() {

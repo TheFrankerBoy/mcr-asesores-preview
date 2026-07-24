@@ -1,22 +1,26 @@
 import Link from "next/link";
 import { PageHero } from "@/components/Shared";
 import { Icon } from "@/components/Icons";
+import { absoluteUrl } from "@/lib/seo";
 
 export const metadata = {
-  title: "Acceso de empleados",
-  description: "Área privada de empleados de MCR Asesores S.L.",
+  title: "Iniciar sesión",
+  description: "Acceso privado al control horario de MCR Asesores S.L.",
+  alternates: {
+    canonical: absoluteUrl("/iniciar-sesion/")
+  },
   robots: {
     index: false,
     follow: false
   }
 };
 
-export default function EmployeesAccessPage() {
+export default function LoginAccessPage() {
   return (
     <>
       <PageHero
         eyebrow="Área privada"
-        title="Acceso de empleados"
+        title="Iniciar sesión"
         text="El control horario se habilitará en la puesta en producción de la web de MCR Asesores."
       />
       <section className="employee-preview-section section-pad">

@@ -3,11 +3,15 @@ import Link from "next/link";
 import { PageHero, AppointmentBand } from "@/components/Shared";
 import { Icon } from "@/components/Icons";
 import { assetPath, audiences } from "@/lib/content";
+import { absoluteUrl } from "@/lib/seo";
 
 export const metadata = {
   title: "Quiénes somos",
   description:
-    "Conoce la trayectoria, la forma de trabajar y el compromiso de MCR Asesores con autónomos, sociedades y pymes."
+    "Conoce la trayectoria de MCR Asesores desde 1994 y nuestro trabajo con autónomos, sociedades y pymes de Pilas y Sevilla.",
+  alternates: {
+    canonical: absoluteUrl("/mcr-asesores/")
+  }
 };
 
 export default function AboutPage() {
@@ -21,10 +25,10 @@ export default function AboutPage() {
 
       <section className="story-section section-pad" id="quienes-somos">
         <div className="section-shell story-grid">
-          <div className="story-image story-brand-panel" data-reveal>
+          <div className="story-image" data-reveal>
             <Image
-              src={assetPath("/images/logo-mcr-transparent-cropped.png")}
-              alt="MCR Asesores S.L."
+              src={assetPath("/images/despacho-mcr-editorial.webp")}
+              alt="Interior de un despacho profesional de asesoría"
               fill
               sizes="(max-width: 800px) 100vw, 52vw"
             />
