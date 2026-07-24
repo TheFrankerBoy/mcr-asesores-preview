@@ -19,12 +19,12 @@ export default function AboutPage() {
         text="Una trayectoria construida con seriedad, atención personal y relaciones que duran. Somos un despacho cercano con una visión completa de cada cliente."
       />
 
-      <section className="story-section section-pad">
+      <section className="story-section section-pad" id="quienes-somos">
         <div className="section-shell story-grid">
-          <div className="story-image" data-reveal>
+          <div className="story-image story-brand-panel" data-reveal>
             <Image
-              src={assetPath("/images/fachada-mcr.webp")}
-              alt="Fachada de MCR Asesores en Pilas"
+              src={assetPath("/images/logo-mcr-transparent-cropped.png")}
+              alt="MCR Asesores S.L."
               fill
               sizes="(max-width: 800px) 100vw, 52vw"
             />
@@ -88,7 +88,7 @@ export default function AboutPage() {
           </div>
           <div className="audience-detail-grid">
             {audiences.map((audience) => (
-              <article key={audience.title} data-reveal>
+              <article id={audience.slug} key={audience.title} data-reveal>
                 <h3>{audience.title}</h3>
                 <p>{audience.text}</p>
                 <Link href="/contacto">

@@ -99,7 +99,9 @@ export default function HomePage() {
                 </div>
                 <h3>{service.title}</h3>
                 <p>{service.short}</p>
-                <span className="card-arrow"><Icon name="arrow" size={20} /></span>
+                <span className="service-read-more">
+                  Leer más <Icon name="arrow" size={18} />
+                </span>
               </Link>
             ))}
           </div>
@@ -114,16 +116,15 @@ export default function HomePage() {
 
       <section className="numbers-section section-pad">
         <div className="section-shell numbers-grid">
-          <div className="numbers-photo" data-reveal>
-            <Image
-              src={assetPath("/images/fachada-mcr.webp")}
-              alt="Fachada de MCR Asesores en Pilas"
-              fill
-              sizes="(max-width: 800px) 100vw, 42vw"
-            />
-            <div className="photo-caption">
-              <Icon name="pin" size={18} />
-              Av. Pío XII, 43 · Pilas
+          <div className="numbers-photo brand-history-panel" data-reveal>
+            <div>
+              <Image
+                src={assetPath("/images/logo-mcr-transparent-cropped.png")}
+                alt="MCR Asesores S.L."
+                width={1382}
+                height={649}
+              />
+              <p>Una trayectoria construida con cercanía, rigor y continuidad.</p>
             </div>
           </div>
           <div className="numbers-copy" data-reveal>
@@ -162,7 +163,7 @@ export default function HomePage() {
             <p className="eyebrow">Estamos en Pilas</p>
             <h2>Un despacho cercano, también en el mapa.</h2>
             <p>
-              Ven a conocernos en la Avenida Pío XII. Si lo prefieres, llámanos o
+              Ven a conocernos en la Avenida Alcalde Jesús Calderón Moreno. Si lo prefieres, llámanos o
               escríbenos antes y te orientamos desde el primer momento.
             </p>
             <div className="location-details">

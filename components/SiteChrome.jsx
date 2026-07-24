@@ -4,19 +4,35 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-import { assetPath, company } from "@/lib/content";
+import { assetPath, company, services } from "@/lib/content";
 import { Icon } from "./Icons";
 
 const nav = [
   { href: "/", label: "Inicio" },
-  { href: "/mcr-asesores", label: "MCR Asesores" },
-  { href: "/servicios", label: "Servicios" },
+  {
+    href: "/mcr-asesores",
+    label: "MCR Asesores",
+    children: [
+      { href: "/mcr-asesores#quienes-somos", label: "Quiénes somos" },
+      { href: "/mcr-asesores#autonomos", label: "Autónomos" },
+      { href: "/mcr-asesores#sociedades", label: "Sociedades y pymes" }
+    ]
+  },
+  {
+    href: "/servicios",
+    label: "Servicios",
+    children: services.map((service) => ({
+      href: `/servicios#${service.slug}`,
+      label: service.title
+    }))
+  },
   { href: "/contacto", label: "Contacto" }
 ];
 
 export function Header() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
+  const [openSubmenu, setOpenSubmenu] = useState(null);
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
@@ -26,7 +42,10 @@ export function Header() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  useEffect(() => setOpen(false), [pathname]);
+  useEffect(() => {
+    setOpen(false);
+    setOpenSubmenu(null);
+  }, [pathname]);
 
   return (
     <header className={`site-header ${scrolled ? "is-scrolled" : ""}`}>
@@ -43,16 +62,66 @@ export function Header() {
 
         <nav className={`main-nav ${open ? "is-open" : ""}`} aria-label="Principal">
           {nav.map((item) => (
-            <Link
+            <div
+              className={`nav-item ${item.children ? "has-submenu" : ""}`}
               key={item.href}
-              href={item.href}
-              className={pathname === item.href ? "active" : ""}
             >
-              {item.label}
-            </Link>
+              <div className="nav-item-trigger">
+                <Link
+                  href={item.href}
+                  className={`nav-primary-link ${pathname === item.href ? "active" : ""}`}
+                  onClick={() => {
+                    setOpen(false);
+                    setOpenSubmenu(null);
+                  }}
+                >
+                  {item.label}
+                </Link>
+                {item.children && (
+                  <button
+                    type="button"
+                    className="submenu-toggle"
+                    aria-label={`Mostrar opciones de ${item.label}`}
+                    aria-expanded={openSubmenu === item.href}
+                    onClick={() =>
+                      setOpenSubmenu((current) => current === item.href ? null : item.href)
+                    }
+                  >
+                    <Icon name="chevron" size={15} strokeWidth={2} />
+                  </button>
+                )}
+              </div>
+              {item.children && (
+                <div
+                  className={`nav-dropdown ${openSubmenu === item.href ? "is-open" : ""}`}
+                >
+                  {item.children.map((child) => (
+                    <Link
+                      key={child.href}
+                      href={child.href}
+                      onClick={() => {
+                        setOpen(false);
+                        setOpenSubmenu(null);
+                      }}
+                    >
+                      {child.label}
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </div>
           ))}
           <div className="mobile-nav-actions">
-            <a href={company.whatsappHref} target="_blank" rel="noreferrer">
+            <a href={assetPath("/empleados/")} className="employee-mobile-link">
+              <Icon name="clock" size={19} />
+              Empleados
+            </a>
+            <a
+              href={company.whatsappHref}
+              target="_blank"
+              rel="noreferrer"
+              className="whatsapp-mobile-link"
+            >
               <Icon name="whatsapp" size={20} />
               WhatsApp
             </a>
@@ -64,6 +133,10 @@ export function Header() {
         </nav>
 
         <div className="header-actions">
+          <a href={assetPath("/empleados/")} className="employee-link">
+            <Icon name="clock" size={18} />
+            Empleados
+          </a>
           <a
             href={company.instagram}
             target="_blank"
@@ -91,7 +164,12 @@ export function Header() {
           className={`menu-toggle ${open ? "is-open" : ""}`}
           aria-label={open ? "Cerrar menú" : "Abrir menú"}
           aria-expanded={open}
-          onClick={() => setOpen((value) => !value)}
+          onClick={() =>
+            setOpen((value) => {
+              if (value) setOpenSubmenu(null);
+              return !value;
+            })
+          }
         >
           <span />
           <span />
@@ -128,6 +206,7 @@ export function Footer() {
             <Link href="/mcr-asesores">Quiénes somos</Link>
             <Link href="/servicios">Servicios</Link>
             <Link href="/contacto">Contacto</Link>
+            <a href={assetPath("/empleados/")}>Acceso de empleados</a>
             <a href={company.maps} target="_blank" rel="noreferrer">
               Cómo llegar
             </a>
