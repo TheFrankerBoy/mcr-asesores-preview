@@ -35,7 +35,7 @@ jobs:
           NEXT_PUBLIC_BASE_PATH: /mcr-asesores-preview
           NEXT_PUBLIC_SITE_URL: https://thefrankerboy.github.io/mcr-asesores-preview
           NEXT_PUBLIC_ALLOW_INDEXING: "false"
-        run: npm run build
+        run: npm run build:pages
 
       - name: Preparar GitHub Pages
         uses: actions/configure-pages@v5
