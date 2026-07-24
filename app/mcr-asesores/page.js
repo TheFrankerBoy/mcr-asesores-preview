@@ -23,8 +23,8 @@ export default function AboutPage() {
         <div className="section-shell story-grid">
           <div className="story-image" data-reveal>
             <Image
-              src={assetPath("/images/consulta.webp")}
-              alt="Asesoramiento personalizado en el despacho"
+              src={assetPath("/images/fachada-mcr.webp")}
+              alt="Fachada de MCR Asesores en Pilas"
               fill
               sizes="(max-width: 800px) 100vw, 52vw"
             />
@@ -66,13 +66,12 @@ export default function AboutPage() {
           </div>
           <div className="values-grid">
             {[
-              ["01", "Cercanía", "Te atendemos con nombres y apellidos. Conocemos tu situación y evitamos respuestas impersonales."],
-              ["02", "Claridad", "Traducimos la normativa y los números para que entiendas tus opciones antes de decidir."],
-              ["03", "Rigor", "Revisamos cada gestión con método, responsabilidad y atención a los detalles."],
-              ["04", "Compromiso", "No nos limitamos a presentar documentos: acompañamos, prevenimos y buscamos soluciones."]
-            ].map(([number, title, text]) => (
+              ["Cercanía", "Te atendemos con nombres y apellidos. Conocemos tu situación y evitamos respuestas impersonales."],
+              ["Claridad", "Traducimos la normativa y los números para que entiendas tus opciones antes de decidir."],
+              ["Rigor", "Revisamos cada gestión con método, responsabilidad y atención a los detalles."],
+              ["Compromiso", "No nos limitamos a presentar documentos: acompañamos, prevenimos y buscamos soluciones."]
+            ].map(([title, text]) => (
               <div className="value-card" key={title} data-reveal>
-                <span>{number}</span>
                 <h3>{title}</h3>
                 <p>{text}</p>
               </div>
@@ -88,9 +87,8 @@ export default function AboutPage() {
             <h2>Una respuesta para cada realidad</h2>
           </div>
           <div className="audience-detail-grid">
-            {audiences.map((audience, index) => (
+            {audiences.map((audience) => (
               <article key={audience.title} data-reveal>
-                <span>0{index + 1}</span>
                 <h3>{audience.title}</h3>
                 <p>{audience.text}</p>
                 <Link href="/contacto">

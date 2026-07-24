@@ -9,8 +9,8 @@ export default function HomePage() {
     <>
       <section className="home-hero">
         <Image
-          src={assetPath("/images/hero-sevilla.webp")}
-          alt="Vista de Sevilla al atardecer"
+          src={assetPath("/images/hero-sevilla-real.webp")}
+          alt="Vista real de Sevilla con la Giralda"
           fill
           priority
           sizes="100vw"
@@ -19,11 +19,11 @@ export default function HomePage() {
         <div className="hero-shade" />
         <div className="section-shell hero-content">
           <div className="hero-copy">
-            <p className="eyebrow light">Gestoría y asesoría · Desde 1994</p>
-            <h1>La tranquilidad de tenerlo todo bien acompañado.</h1>
+            <p className="eyebrow light">Gestoría y asesoría en Pilas</p>
+            <h1>Asesoramiento para autónomos, pymes y empresas.</h1>
             <p className="hero-lead">
-              Más de treinta años ayudando a autónomos, pymes y empresas con un
-              asesoramiento cercano, claro y comprometido.
+              Desde 1994 ofrecemos asesoramiento fiscal, contable, laboral,
+              jurídico y administrativo con atención directa y personalizada.
             </p>
             <div className="hero-buttons">
               <Link href="/contacto" className="button button-warm">
@@ -35,34 +35,22 @@ export default function HomePage() {
               </Link>
             </div>
           </div>
-          <div className="hero-proof">
-            <span className="proof-number">30+</span>
-            <span className="proof-label">años contigo</span>
-          </div>
-        </div>
-        <div className="hero-scroll">
-          <span />
-          Descubre MCR
         </div>
       </section>
 
       <section className="trust-strip">
         <div className="section-shell trust-grid">
           <div>
-            <span>01</span>
-            <p>Atención personalizada</p>
+            <strong>Desde 1994</strong>
+            <p>Más de treinta años de experiencia</p>
           </div>
           <div>
-            <span>02</span>
-            <p>Visión integral</p>
+            <strong>En Pilas</strong>
+            <p>Atención presencial y cercana</p>
           </div>
           <div>
-            <span>03</span>
-            <p>Respuesta cercana</p>
-          </div>
-          <div>
-            <span>04</span>
-            <p>Experiencia desde 1994</p>
+            <strong>Servicio integral</strong>
+            <p>Fiscal, laboral, contable y jurídico</p>
           </div>
         </div>
       </section>
@@ -70,15 +58,15 @@ export default function HomePage() {
       <section className="intro-section section-pad">
         <div className="section-shell intro-grid">
           <div data-reveal>
-            <p className="eyebrow">Una asesoría que habla tu idioma</p>
-            <h2>Rigor profesional.<br />Trato de siempre.</h2>
+            <p className="eyebrow">MCR Asesores</p>
+            <h2>Asesoramiento integral con trato directo.</h2>
           </div>
           <div className="intro-copy" data-reveal>
             <p>
-              El proyecto actual de MCR Asesores mantiene el mismo compromiso,
-              cercanía y confianza que ha acompañado a sus clientes durante décadas.
-              Te explicamos lo complejo de forma sencilla y cuidamos cada gestión
-              como si fuera propia.
+              El proyecto actual de MCR Asesores mantiene el compromiso y la
+              cercanía que han acompañado al despacho durante décadas. Estudiamos
+              cada caso, explicamos las opciones con claridad y realizamos un
+              seguimiento continuo de cada gestión.
             </p>
             <ArrowLink href="/mcr-asesores">Conoce nuestra historia</ArrowLink>
           </div>
@@ -93,22 +81,21 @@ export default function HomePage() {
               <h2>Todo lo que necesitas.<br />Un solo equipo.</h2>
             </div>
             <p>
-              Primera consulta gratuita y sin compromiso. Analizamos tu caso y te
-              proponemos el camino más claro.
+              Estudiamos cada caso y coordinamos las áreas necesarias para ofrecerte
+              una respuesta clara y bien fundamentada.
             </p>
           </div>
 
           <div className="service-grid">
-            {services.map((service, index) => (
+            {services.map((service) => (
               <Link
                 href={`/servicios#${service.slug}`}
-                className={`service-card ${index === 0 ? "featured" : ""}`}
+                className="service-card"
                 key={service.slug}
                 data-reveal
               >
                 <div className="service-card-top">
                   <ServiceIcon name={service.icon} />
-                  <span className="service-number">{service.number}</span>
                 </div>
                 <h3>{service.title}</h3>
                 <p>{service.short}</p>
@@ -140,9 +127,8 @@ export default function HomePage() {
             </div>
           </div>
           <div className="numbers-copy" data-reveal>
-            <p className="eyebrow">Confianza que se construye</p>
-            <p className="big-number">+250</p>
-            <h2>empresas confían en nosotros</h2>
+            <p className="eyebrow">Experiencia y continuidad</p>
+            <h2>Más de 250 empresas confían en nosotros.</h2>
             <p>
               Desde hace más de 30 años trabajamos junto a negocios de nuestro
               entorno, aportando experiencia, soluciones útiles y una atención que
@@ -160,9 +146,8 @@ export default function HomePage() {
             <h2>Estamos cerca en cada etapa</h2>
           </div>
           <div className="audience-grid">
-            {audiences.map((audience, index) => (
+            {audiences.map((audience) => (
               <div className="audience-card" key={audience.title} data-reveal>
-                <span>0{index + 1}</span>
                 <h3>{audience.title}</h3>
                 <p>{audience.text}</p>
               </div>

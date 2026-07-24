@@ -1,5 +1,5 @@
 import "./globals.css";
-import { Footer, Header, FloatingWhatsApp, ScrollReveal } from "@/components/SiteChrome";
+import { Footer, Header, FloatingWhatsApp } from "@/components/SiteChrome";
 
 export const metadata = {
   title: {
@@ -31,7 +31,6 @@ export default function RootLayout({ children }) {
         <main>{children}</main>
         <Footer />
         <FloatingWhatsApp />
-        <ScrollReveal />
       </body>
     </html>
   );

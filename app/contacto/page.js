@@ -6,7 +6,7 @@ import { company } from "@/lib/content";
 export const metadata = {
   title: "Contacto",
   description:
-    "Contacta con MCR Asesores en Av. Pío XII, 43, Pilas. Solicita información o una primera consulta."
+    "Contacta con MCR Asesores en Av. Pío XII, 43, Pilas. Solicita información o concierta una cita."
 };
 
 export default function ContactPage() {

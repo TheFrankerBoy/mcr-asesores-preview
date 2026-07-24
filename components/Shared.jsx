@@ -1,7 +1,6 @@
 import Link from "next/link";
-import Image from "next/image";
 import { Icon } from "./Icons";
-import { assetPath, company } from "@/lib/content";
+import { company } from "@/lib/content";
 
 export function ArrowLink({ href, children, light = false, className = "" }) {
   return (
@@ -15,7 +14,6 @@ export function ArrowLink({ href, children, light = false, className = "" }) {
 export function PageHero({ eyebrow, title, text }) {
   return (
     <section className="page-hero">
-      <div className="page-hero-pattern" />
       <div className="section-shell page-hero-inner">
         <p className="eyebrow light" data-reveal>{eyebrow}</p>
         <h1 data-reveal>{title}</h1>
@@ -28,19 +26,10 @@ export function PageHero({ eyebrow, title, text }) {
 export function AppointmentBand() {
   return (
     <section className="appointment-band">
-      <Image
-        src={assetPath("/images/consulta.webp")}
-        alt=""
-        fill
-        sizes="100vw"
-        className="appointment-photo"
-        aria-hidden="true"
-      />
-      <div className="appointment-overlay" />
       <div className="section-shell appointment-content">
         <div data-reveal>
-          <p className="eyebrow light">Primera consulta sin compromiso</p>
-          <h2>Cuéntanos qué necesitas.<br />Empezamos escuchándote.</h2>
+          <p className="eyebrow light">Atención personalizada</p>
+          <h2>¿Tienes una consulta o quieres concertar una cita?</h2>
         </div>
         <a
           data-reveal

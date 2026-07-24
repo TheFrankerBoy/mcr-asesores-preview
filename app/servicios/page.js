@@ -21,7 +21,6 @@ export default function ServicesPage() {
         <div className="section-shell service-index-grid">
           {services.map((service) => (
             <a key={service.slug} href={`#${service.slug}`}>
-              <span>{service.number}</span>
               {service.title}
             </a>
           ))}
@@ -30,7 +29,7 @@ export default function ServicesPage() {
 
       <section className="service-detail-list section-pad">
         <div className="section-shell">
-          {services.map((service, index) => (
+          {services.map((service) => (
             <article
               id={service.slug}
               className="service-detail"
@@ -39,7 +38,6 @@ export default function ServicesPage() {
             >
               <div className="service-detail-title">
                 <ServiceIcon name={service.icon} />
-                <span className="detail-number">{service.number}</span>
                 <h2>{service.title}</h2>
               </div>
               <div className="service-detail-copy">
