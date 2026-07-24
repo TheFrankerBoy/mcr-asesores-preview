@@ -1,0 +1,64 @@
+import { PageHero, ServiceIcon, AppointmentBand } from "@/components/Shared";
+import { Icon } from "@/components/Icons";
+import { services } from "@/lib/content";
+
+export const metadata = {
+  title: "Servicios",
+  description:
+    "Asesoría fiscal, laboral, contable, jurídica, gestoría administrativa, agricultura, ganadería y extranjería."
+};
+
+export default function ServicesPage() {
+  return (
+    <>
+      <PageHero
+        eyebrow="Servicios"
+        title="Un asesoramiento completo, sin respuestas genéricas."
+        text="Cada negocio y cada persona tienen una realidad distinta. Por eso estudiamos tu caso, coordinamos las áreas necesarias y te explicamos cada paso con claridad."
+      />
+
+      <section className="services-index">
+        <div className="section-shell service-index-grid">
+          {services.map((service) => (
+            <a key={service.slug} href={`#${service.slug}`}>
+              <span>{service.number}</span>
+              {service.title}
+            </a>
+          ))}
+        </div>
+      </section>
+
+      <section className="service-detail-list section-pad">
+        <div className="section-shell">
+          {services.map((service, index) => (
+            <article
+              id={service.slug}
+              className="service-detail"
+              key={service.slug}
+              data-reveal
+            >
+              <div className="service-detail-title">
+                <ServiceIcon name={service.icon} />
+                <span className="detail-number">{service.number}</span>
+                <h2>{service.title}</h2>
+              </div>
+              <div className="service-detail-copy">
+                <p className="service-intro">{service.description}</p>
+                <ul>
+                  {service.details.map((detail) => (
+                    <li key={detail}>
+                      <Icon name="check" size={19} />
+                      {detail}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <AppointmentBand />
+    </>
+  );
+}
