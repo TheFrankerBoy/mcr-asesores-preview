@@ -29,7 +29,7 @@ export default function HomePage() {
         <div className="hero-shade" />
         <div className="section-shell hero-content">
           <div className="hero-copy">
-            <p className="eyebrow light">Gestoría y asesoría en Pilas</p>
+            <p className="eyebrow light">Gestoría y asesoría en Sevilla</p>
             <h1>Asesoramiento para autónomos, pymes y empresas.</h1>
             <p className="hero-lead">
               Desde 1994 ofrecemos asesoramiento fiscal, contable, laboral,
